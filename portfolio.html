@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Oyetade Fareed Ayoola — Mechanical Engineering</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #F7F5F0;
+    --ink: #1C2B45;
+    --blue: #2E5C8A;
+    --grey: #6B7280;
+    --line: rgba(28,43,69,0.12);
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+  *, *::before, *::after { box-sizing: inherit; }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #14181F;
+      --ink: #EDEBE4;
+      --blue: #6FA3D8;
+      --grey: #9CA3AF;
+      --line: rgba(237,235,228,0.14);
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #14181F;
+    --ink: #EDEBE4;
+    --blue: #6FA3D8;
+    --grey: #9CA3AF;
+    --line: rgba(237,235,228,0.14);
+  }
+
+  body {
+    margin: 0;
+    background:
+      repeating-linear-gradient(0deg, var(--line) 0 1px, transparent 1px 32px),
+      repeating-linear-gradient(90deg, var(--line) 0 1px, transparent 1px 32px),
+      var(--paper);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', sans-serif;
+    line-height: 1.6;
+  }
+
+  .wrap { max-width: 700px; margin: 0 auto; padding: 64px 24px 80px; }
+
+  header { margin-bottom: 64px; }
+  .tag {
+    font-family: 'Space Grotesk', sans-serif;
+    color: var(--blue);
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+  }
+  h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: clamp(2rem, 6vw, 2.8rem);
+    line-height: 1.15;
+    margin: 0 0 16px;
+  }
+  header p {
+    color: var(--grey);
+    max-width: 46ch;
+    font-size: 1.05rem;
+  }
+
+  section { margin-bottom: 56px; }
+  h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 500;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+  }
+
+  .learning {
+    border-left: 3px solid var(--blue);
+    padding: 14px 18px;
+    background: rgba(46,92,138,0.06);
+    border-radius: 2px;
+  }
+  .learning strong { color: var(--blue); }
+
+  .project {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .project:last-child { border-bottom: none; }
+  .project h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.1rem;
+    margin: 0 0 6px;
+  }
+  .project p { color: var(--grey); margin: 0; font-size: 0.98rem; }
+  .placeholder {
+    color: var(--grey);
+    font-style: italic;
+    border: 1px dashed var(--line);
+    border-radius: 4px;
+    padding: 16px 18px;
+  }
+
+  .skills { display: flex; flex-wrap: wrap; gap: 10px; }
+  .skill {
+    font-size: 0.9rem;
+    padding: 6px 14px;
+    border: 1px solid var(--line);
+    border-radius: 100px;
+    color: var(--ink);
+  }
+
+  footer {
+    color: var(--grey);
+    font-size: 0.9rem;
+    border-top: 1px solid var(--line);
+    padding-top: 24px;
+  }
+  footer a { color: var(--blue); }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="tag">500-Level Mechanical Engineering Student · Lagos, Nigeria</div>
+      <h1>Oyetade Fareed Ayoola</h1>
+      <p>Mechanical engineering student with hands-on roots — trained as a mechanic through secondary school before formal study. Now building on that practical base with CAD and code.</p>
+    </header>
+
+    <section>
+      <h2>Currently learning</h2>
+      <div class="learning">
+        <strong>CAD fundamentals</strong> — working through beginner CAD tutorials on YouTube, building toward my first original part designs.
+      </div>
+    </section>
+
+    <section>
+      <h2>Hands-on experience</h2>
+      <div class="project">
+        <h3>Automotive mechanics</h3>
+        <p>Trained as a mechanic during secondary school, with strong practical knowledge of Japanese and American vehicle systems — diagnostics, repair, and general upkeep learned outside the classroom, long before formal engineering study.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Projects</h2>
+      <div class="project placeholder">
+        First project coming soon — this spot is reserved for your first CAD model or class project writeup.
+      </div>
+      <div class="project">
+        <h3>Gear Ratio Calculator</h3>
+        <p>An interactive tool that calculates gear ratios in real time from teeth counts, and explains the speed/torque tradeoff. Built while learning core JavaScript — variables, functions, and event listeners. <a href="https://claude.ai/artifact/9tUtZ3A1zjn6Gq7oRB2uBM" target="_blank">View live tool →</a></p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Skills</h2>
+      <div class="skills">
+        <span class="skill">Mechanical Design</span>
+        <span class="skill">Automotive Diagnostics</span>
+        <span class="skill">CAD (learning)</span>
+        <span class="skill">HTML/CSS (learning)</span>
+        <span class="skill">JavaScript (learning)</span>
+        <span class="skill">Problem Solving</span>
+      </div>
+    </section>
+
+    <footer>
+      Get in touch — <a href="mailto:oyetadefareedayoola@gmail.com">oyetadefareedayoola@gmail.com</a>
+    </footer>
+  </div>
+</body>
+</html>
