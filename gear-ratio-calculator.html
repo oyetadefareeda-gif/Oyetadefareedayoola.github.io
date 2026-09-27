@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Gear Ratio Calculator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #F7F5F0;
+    --ink: #1C2B45;
+    --blue: #2E5C8A;
+    --grey: #6B7280;
+    --line: rgba(28,43,69,0.12);
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  *, *::before, *::after { box-sizing: inherit; }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #14181F; --ink: #EDEBE4; --blue: #6FA3D8; --grey: #9CA3AF; --line: rgba(237,235,228,0.14);
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #14181F; --ink: #EDEBE4; --blue: #6FA3D8; --grey: #9CA3AF; --line: rgba(237,235,228,0.14);
+  }
+  body {
+    margin: 0; background: var(--paper); color: var(--ink);
+    font-family: 'IBM Plex Sans', sans-serif; line-height: 1.6;
+  }
+  .wrap { max-width: 480px; margin: 0 auto; padding: 56px 24px 80px; }
+  h1 {
+    font-family: 'Space Grotesk', sans-serif; font-size: 1.8rem;
+    margin: 0 0 8px;
+  }
+  .sub { color: var(--grey); margin: 0 0 36px; }
+  label {
+    display: block; font-size: 0.9rem; color: var(--grey); margin-bottom: 6px;
+  }
+  input {
+    width: 100%; font-size: 1.1rem; padding: 12px 14px;
+    border: 1px solid var(--line); border-radius: 6px;
+    background: transparent; color: var(--ink);
+    font-family: 'IBM Plex Sans', sans-serif; margin-bottom: 20px;
+  }
+  input:focus { outline: 2px solid var(--blue); outline-offset: 1px; }
+  .result {
+    margin-top: 12px; padding: 20px; border-radius: 8px;
+    background: rgba(46,92,138,0.08); border-left: 3px solid var(--blue);
+  }
+  .result .ratio {
+    font-family: 'Space Grotesk', sans-serif; font-size: 1.6rem; font-weight: 700;
+    color: var(--blue);
+  }
+  .result p { margin: 6px 0 0; color: var(--grey); font-size: 0.92rem; }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Gear Ratio Calculator</h1>
+    <p class="sub">Enter the teeth count on each gear to find the ratio.</p>
+
+    <label for="drive">Drive gear teeth (input gear)</label>
+    <input type="number" id="drive" value="20" min="1">
+
+    <label for="driven">Driven gear teeth (output gear)</label>
+    <input type="number" id="driven" value="40" min="1">
+
+    <div class="result">
+      <div class="ratio" id="ratioOutput">2.00 : 1</div>
+      <p id="explainOutput">The driven gear turns slower and produces more torque.</p>
+    </div>
+  </div>
+
+  <script>
+    // Grab references to our HTML elements so JS can read/change them
+    const driveInput = document.getElementById('drive');
+    const drivenInput = document.getElementById('driven');
+    const ratioOutput = document.getElementById('ratioOutput');
+    const explainOutput = document.getElementById('explainOutput');
+
+    // This function does the actual math and updates the page
+    function calculateRatio() {
+      const drive = parseFloat(driveInput.value);
+      const driven = parseFloat(drivenInput.value);
+
+      if (!drive || !driven) return; // guard against empty/invalid input
+
+      const ratio = driven / drive;
+      ratioOutput.textContent = ratio.toFixed(2) + ' : 1';
+
+      if (ratio > 1) {
+        explainOutput.textContent = 'The driven gear turns slower and produces more torque.';
+      } else if (ratio < 1) {
+        explainOutput.textContent = 'The driven gear turns faster and produces less torque.';
+      } else {
+        explainOutput.textContent = 'Both gears turn at the same speed.';
+      }
+    }
+
+    // Event listeners: run calculateRatio() every time either input changes
+    driveInput.addEventListener('input', calculateRatio);
+    drivenInput.addEventListener('input', calculateRatio);
+  </script>
+</body>
+</html>
